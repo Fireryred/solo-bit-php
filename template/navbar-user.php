@@ -1,5 +1,5 @@
 <div class="navbar navbar-expand navbar-dark bg-dark sticky-top">
-	<div class="navbar-brand" href="index.php">Solo Bit</div>
+	<a href="index.php" class="navbar-brand">Solo Bit</a>
 	<div class="collapse navbar-collapse">
 		<ul class="navbar-nav mr-auto">
 		</ul>
