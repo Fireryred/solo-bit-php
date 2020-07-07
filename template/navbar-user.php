@@ -7,12 +7,12 @@
 			<input class="form-control mr-sm-2" type="search" name="product" placeholder="Search">
 			<button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
 		</form>
-		<span class="dropdown">
-			<a href="" class="nav-link text-light dropdown-toggle" data-toggle="dropdown">User</a>
+		<span class="dropdown col-1">
+			<a href="" class="nav-link text-light dropdown-toggle" data-toggle="dropdown"><?=$_SESSION['username']?></a>
 			<div class="dropdown-menu">
 				<a href="" class="dropdown-item">Account</a>
 				<a href="" class="dropdown-item">Something</a>
-				<a href="" class="dropdown-item">Logout</a>
+				<a href="logout.php" class="dropdown-item">Logout</a>
 			</div>
 		</span>
 	</div>
