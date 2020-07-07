@@ -50,10 +50,6 @@
 						}
 						session_destroy();
 					?>
-					<!-- <div class="form-check">
-						<input type="checkbox" class="form-check-input" name="rememberMe" <?=isset($rememberMe) ? 'checked' : ''?>>
-						<label class="form-check-label">Remember Me</label>
-					</div> -->
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 				</form>
 				<div>
