@@ -9,15 +9,13 @@
 	}
 	require_once 'template/heading.php';
 	require_once 'template/navbar-guest.php';
-	
 ?>
 	<div class="container">
 		<div class="card">
 			<div class="card-body">
 				<form class="form-signin" method="post" action="register-process.php">
 					<h4>Register</h4>
-					<?php 
-						session_start();
+					<?php
 						$error = @$_SESSION['error'];
 						if (isset($error)) {
 							if (in_array("Username taken", $error)) {
