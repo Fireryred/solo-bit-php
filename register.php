@@ -9,6 +9,7 @@
 	}
 	require_once 'template/heading.php';
 	require_once 'template/navbar-guest.php';
+	
 ?>
 	<div class="container">
 		<div class="card">
