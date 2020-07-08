@@ -25,20 +25,38 @@
 				$stmt->bind_param('s', $username);
 				$stmt->execute();
 				$result = $stmt->get_result();
-
-				#input validation
+				
 				if ($result->fetch_assoc()) {
 					array_push($error, "Username taken");
 				}
+
+				#email validation
 				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
 					array_push($error, "Email invalid");
 				}
+
+				#check if email is already registered
+				$query = "
+					SELECT * FROM user_details 
+					WHERE email=?;
+				";
+				$stmt = $db->prepare($query);
+				$stmt->bind_param('s', $email);
+				$stmt->execute();
+				$result = $stmt->get_result();
+				if ($result->fetch_assoc()) {
+					array_push($error, "Email taken");
+				}
+
+				#confirm password check
 				if ($password != $confirmPassword) {
 					array_push($error, "Password not same", " " , $password, "=", $confirmPassword);
 				}
+				#password format check
 				if (!preg_match("#[0-9]+#", $password) || !preg_match("#[A-Z]+#", $password) || !preg_match("#[a-z]+#", $password)) {
 					array_push($error, "Password invalid");
 				}
+				#password has username check
 				if (strpos($password, $username)) {
 					array_push($error, "Username Password same");
 				}

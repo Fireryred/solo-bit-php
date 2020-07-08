@@ -43,7 +43,7 @@
 								if (in_array("Password invalid", $error)) {
 									echo "<div class=\"invalid-feedback\">Password must contain atleast: 1 uppercase, 1 lowercase and 1 number</div>";
 								} else if (in_array("Username Password same", $error)) {
-									echo "<div class=\"invalid-feedback\">Username must not exist in password</div>";
+									echo "<div class=\"invalid-feedback\">The password must not contain the username</div>";
 								}
 								echo "
 								</div>
@@ -72,12 +72,18 @@
 								</div>
 								";
  							}
- 							if (in_array("Email invalid", $error)) {
+ 							if (in_array("Email invalid", $error) || in_array("Email taken", $error)) {
 								echo "
 								<div class=\"form-group\">
 									<label for=\"email\">Email Address</label>
 									<input type=\"email\" name=\"email\" id=\"email\" class=\"form-control is-invalid\" placeholder=\"Email Address\" required>
-									<div class=\"invalid-feedback\">Invalid Email</div>
+								";
+								if (in_array("Email invalid", $error)) {
+									echo "<div class=\"invalid-feedback\">Invalid Email</div>";
+								} else if (in_array("Email taken", $error)) {
+									echo "<div class=\"invalid-feedback\">Email is already registered</div>";
+								}
+								echo "
 								</div>
 								";
  							} else {
