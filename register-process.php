@@ -22,13 +22,12 @@
 					WHERE username=?;
 				";
 				$stmt = $db->prepare($query);
-				$stmt->bind_param('ss', $username);
+				$stmt->bind_param('s', $username);
 				$stmt->execute();
 				$result = $stmt->get_result();
-				$resultCount = $result->num_rows;
 
 				#input validation
-				if ($resultCount >= 1) {
+				if ($result->fetch_assoc()) {
 					array_push($error, "Username taken");
 				}
 				if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
