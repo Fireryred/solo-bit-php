@@ -53,7 +53,7 @@
 					<button class="btn btn-lg btn-primary btn-block" type="submit">Login</button>
 				</form>
 				<div>
-					<span>No account yet? Click <a href="register.php" class="btn-link">here</a> to register</span>
+					<span>Not Registered? Click <a href="register.php" class="btn-link">here</a> to register</span>
 				</div>
 			</div>
 		</div>

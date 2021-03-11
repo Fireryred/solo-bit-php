@@ -5,6 +5,8 @@
 	if (@$_SESSION['username'] == null) {
 		header('Location: index.php');
 	}
+	$type = $_POST['payment'];
+
 	#welp this is useless now, it's working but now it's not
 	//this suppossedly if the user choose credit card, it then checks if an input is filled
 	// $type = $_POST['payment'];
@@ -72,10 +74,10 @@
 		} else {
 			#adding it to user_address
 			$query = "
-				INSERT INTO user_address(user_id, address, payment) VALUES (?,?);
+				INSERT INTO user_address(user_id, address, payment) VALUES (?,?,?);
 			";
-			$stmt  = $db->prepare($query);
-			$stmt->bind_param('is', $user_id, $address, $type);
+			$stmt = $db->prepare($query);
+			$stmt->bind_param('iss', $user_id, $address, $type);
 			$stmt->execute();
 			header('Location: confirm-checkout.php');
 		}
