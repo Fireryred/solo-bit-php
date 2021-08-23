@@ -16,7 +16,8 @@
 				<form class="form-signin" method="post" action="login-process.php">
 					<h4>Login</h4>
 					<?php 
-						$error = @$_SESSION['error'];
+						$error = [];
+						array_push($error, @$_SESSION['error']);
 						if (@in_array("Username not exists", $error)) {
 							echo "
 							<div class=\"form-group\">
