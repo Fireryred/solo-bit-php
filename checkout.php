@@ -35,7 +35,9 @@
 								<div class="form-group">
 									<label for="creditCardNumber">Credit Card Number</label>
 									<?php
-										if (@in_array('month', json_decode(@$_GET['e']))) {
+										if (json_decode(@$_GET['e'] == null)) {
+											echo "<input class=\"form-control\" type=\"text\" name=\"creditCardNumber\" id=\"creditCardNumber\" placeholder=\"1313-2424-3535-4646\">";
+										} else if (@in_array('month', json_decode(@$_GET['e']))) {
 											echo "<input class=\"form-control is-invalid\" type=\"text\" name=\"creditCardNumber\" id=\"creditCardNumber\" placeholder=\"1313-2424-3535-4646\">";
 										} else {
 											echo "<input class=\"form-control\" type=\"text\" name=\"creditCardNumber\" id=\"creditCardNumber\" placeholder=\"1313-2424-3535-4646\">";
@@ -47,7 +49,9 @@
 									<div class="row">
 										<div class="col">
 											<?php
-												if (@in_array('month', json_decode(@$_GET['e']))) {
+												if (json_decode(@$_GET['e'] == null)) {
+													echo "<select class=\"form-control\" name=\"month\">";
+												} else if (@in_array('month', json_decode(@$_GET['e']))) {
 													echo "<select class=\"form-control border-danger\" name=\"month\">";
 												} else {
 													echo "<select class=\"form-control\" name=\"month\">";
@@ -70,7 +74,9 @@
 										</div>
 										<div class="col">
 												<?php
-												if (@in_array('year', json_decode(@$_GET['e']))) {
+												if (json_decode(@$_GET['e'] == null)) {
+													echo "<select class=\"form-control\" name=\"year\">";
+												} else if (@in_array('year', json_decode(@$_GET['e']))) {
 													echo "<select class=\"form-control border-danger\" name=\"year\">";
 												} else {
 													echo "<select class=\"form-control\" name=\"year\">";
@@ -87,7 +93,9 @@
 										<label for="cvv">CVV</label>
 										<div class="col-3">
 										<?php
-											if (@in_array('cvv', json_decode(@$_GET['e']))) {
+											if (json_decode(@$_GET['e'] == null)) {
+													echo "<input type=\"text\" name=\"cvv\" id=\"cvv\" class=\"form-control\">";
+											} else if (@in_array('cvv', json_decode(@$_GET['e']))) {
 												echo "
 												<input type=\"text\" name=\"cvv\" id=\"cvv\" class=\"form-control is-invalid\">
 												";
