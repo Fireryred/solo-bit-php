@@ -28,8 +28,9 @@
 				SELECT * FROM user_details
 				WHERE username=? AND password=?;
 			";
+			$pass = hash('sha512', $password);
 			$stmt = $db->prepare($query);
-			$stmt->bind_param('ss', $username, hash('sha512', $password));
+			$stmt->bind_param('ss', $username, $pass);
 			$stmt->execute();
 			$result = $stmt->get_result();
 			if ($result->fetch_assoc()) {
@@ -45,6 +46,6 @@
 			}
 		}
 	} catch (Exception $e) {
-		header('Location: login.php?error='.$e->getMessage());
+		header('Location: login.php');
 	}	
 ?>
